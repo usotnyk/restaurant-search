@@ -40,9 +40,6 @@ class RestaurantTable extends Component {
   }
   
   renderRestaurants(restaurants) {
-    // if (!restaurants || restaurants.length === 0) {
-    //   return null;
-    // }
 
     const columns = [
       {
@@ -82,8 +79,7 @@ class RestaurantTable extends Component {
               id="inputRefine"
               name="refine"
               onChange={event => this.handleRefineRestaurantsInputChange(event)}
-              placeholder="Name or Address or Area"
-              // value={refine}
+              placeholder="Name / Address / Area"
               aria-required="false"
               aria-label="Refine your search by entering additional parameters"
             />
@@ -91,7 +87,7 @@ class RestaurantTable extends Component {
         </div>
   
         <MUIDataTable
-          title={"Restaurant List"}
+          // title={"Restaurant List"}
           data={restaurants}
           columns={columns}
           options={options}

@@ -45,9 +45,12 @@ input {
   height: auto;
   min-height: 30px;
   min-width: 50%;
+  max-width: 100%;
   margin: 10px 0;
   font-size: 1rem;
   display: block;
+  border: 1px solid #DDDDDD;
+  padding: 0px 5px;
 }
 
 .btn-search {
@@ -55,12 +58,33 @@ input {
   padding: 8px 20px;
   color: white;
   border-radius: 6px;
-  background-color: #2196f3;
+  background-color: #085696;
   cursor: pointer;
   text-transform: uppercase;
 }
 
 .btn-search:hover, 
 .btn-search:focus {
-  background-color: #1f7cc6;
+  background-color: #06467A;
+}
+
+@media screen and (max-width: 767px) {
+  .rest-search-from {
+    max-width: unset;
+  }
+
+  input {
+    min-width: 100%;
+  }
+
+  table td {
+    overflow: hidden;
+  }
+
+  table td:nth-child(odd) {
+    width: calc(35% - 80px)!important;
+  }
+  table td:nth-child(even) {
+    width: calc(65% - 80px)!important;
+  }
 }
