@@ -1,4 +1,10 @@
-import { createStore } from "redux";
-import rootReducer from "./reducers/restaurants";
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from "./reducers/cities";
 
-export default createStore(rootReducer);
+
+export default createStore(rootReducer, {}, compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
+

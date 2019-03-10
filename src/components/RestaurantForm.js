@@ -3,31 +3,47 @@ import React, { Component } from 'react';
 class RestaurantForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { input: "" };
+    this.state = { 
+      city: "",
+    };
   }
 
-  updateInput = input => {
-    this.setState({ input });
-  };
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  handleAddTodo = () => {
-    // dispatches actions to add todo
-    // sets state back to empty string
-  };
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onFormSubmit(this.state);
+  }
 
   render() {
+    const { city } = this.state;
+
     return (
-      <form className="mB-50">
-        <label>
+      <form
+        onSubmit={event => this.handleSubmit(event)}
+        className="rest-search-from" 
+      >
+        <label id="labelCity" htmlFor="inputCity">
           City:
           <input
-            onChange={e => this.updateInput(e.target.value)}
-            value={this.state.input}
+            id="inputCity"
+            name="city"
+            onChange={event => this.handleInputChange(event)}
+            value={city}
+            required
+            aria-required="true"
+            aria-label="Enter your city"
           />
         </label>
-        <button className="add-todo" onClick={this.handleAddTodo}>
-          Search
-        </button>
+        <input type="submit" value="Search" className="btn-search" />
       </form>
     )
   }
