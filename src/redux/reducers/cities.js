@@ -31,6 +31,5 @@ function mapRestaurants(restaurants) {
     address: restaurant.address,
     area: restaurant.area,
     price: restaurant.price,
-    image_url: restaurant.image_url,
   }));
 }
