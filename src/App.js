@@ -43,7 +43,6 @@ class App extends Component {
     })
 
     .catch((error) => {
-      console.log(error);
       this.setState({ 
         isLoading: false,
         isError: true,
@@ -52,7 +51,7 @@ class App extends Component {
   }
 
   sendAjaxCall(city) {
-    const url = 'http://opentable.herokuapp.com/api/restaurants?city='
+    const url = 'http://opentable.herokuapp.com/api/restaurants?per_page=100&city='
     return axios.get(`${url}${city}`)
   }
 

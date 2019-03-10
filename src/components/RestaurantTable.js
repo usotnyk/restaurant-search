@@ -28,10 +28,11 @@ class RestaurantTable extends Component {
     const { refinedRestaurants } = this.state;
     const { restaurants } = this.props;
 
-    const isRefinedRestaurantsEmpty = refinedRestaurants && refinedRestaurants.length === 0;
-    const isRestaurantsEmpty = restaurants && restaurants.length === 0;
+    if (!restaurants) {
+      return null;
+    }
 
-    if (isRefinedRestaurantsEmpty || isRestaurantsEmpty) {
+    if (restaurants.length === 0) {
       return this.renderEmptyResults();
     }
 
@@ -39,9 +40,9 @@ class RestaurantTable extends Component {
   }
   
   renderRestaurants(restaurants) {
-    if (!restaurants || restaurants.length === 0) {
-      return null;
-    }
+    // if (!restaurants || restaurants.length === 0) {
+    //   return null;
+    // }
 
     const columns = [
       {
